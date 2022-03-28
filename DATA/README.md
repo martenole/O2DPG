@@ -46,7 +46,9 @@ There are 3 ways foreseenm to configure the *full topology* in AliECS: (currentl
   - **workflow parameters**: text field passed to workflow as environment variable for additional options.
   - **number of nodes override**: Overrides the setting for the number of nodes required in the workflow (meant to quickly increase / decrease the EPN partition size).
   - **process multiplicity overrides**: Scaling factors for the process multiplicities for raw decoders, ctf encoders, and other processes.
-  - **extra environment options**: Free text field where the operator can put additional environment variables, that will be forwarded to the workflow.
+  - **extra environment options**: Free text field where the operator can put additional environment variables, that will be forwarded to the workflow. `**NOTE:** in case multiple variables are specified please put them in quotation marks like "ARGS_EXTRA_PROCESS_o2_ft0_reco_workflow=\"--ft0-reconstructor\"--ccdb-path-ft0 http://alice-ccdb.cern.ch\"\"" "CONFIG_EXTRA_PROCESS_o2_its_reco_workflow=..."`
+
+`
   - **wipe workflow cache**: Normally the XMLs are cached, when they are created from the same repository version / same workflow / same O2 version. This option clears the cache for the current partition.
 - **repository directory**: This is almost identical to the case above, but instead of the commit hash, there is the **repository path** specified, pointing to a checked out repository on the shared home folder in the EPN farm. The procedure is the same as before, the parser will create the full topology XML file from the specified workflow in the repository.
 - **manual XML file**: In this mode the `O2DPG` repository is not used at all, but the absolute path of a *full topology* XML file in the EPN's shared home folder is specified. Such an XML file must be prepared manually by the same means as the *parser* would usually do (see paragraph on manual XML file below).
